@@ -110,10 +110,7 @@ Reward: Upon entering the correct sequence, the timer stops, a green light turns
 │   │   │           └── demo
 │   │   │               ├── controller
 │   │   │               ├── dto
-│   │   │               ├── entity
-│   │   │               ├── repository
 │   │   │               ├── service
-│   │   │               ├── utils
 │   │   │               └── ScapeApplication.java
 │   │   └── resources
 │   │       └── application.properties
