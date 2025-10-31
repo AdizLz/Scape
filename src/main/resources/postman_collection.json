@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "escape-room-api-collection",
+		"name": "Escape Room API",
+		"description": "Colección de Postman para la API del juego Escape Room con acertijos binarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Nivel 1 - El Log de Error",
+			"item": [
+				{
+					"name": "GET Nivel 1 - Obtener Acertijo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"1"
+							]
+						},
+						"description": "Obtiene el acertijo del nivel 1: Conversión binaria 011 001 110 a decimal"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 1 - Respuesta Correcta (316)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"answer\": \"316\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"1"
+							]
+						},
+						"description": "Envía la respuesta correcta del nivel 1. Respuesta: 316 (conversión de 011=3, 001=1, 110=6)"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 1 - Respuesta Incorrecta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"answer\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"1"
+							]
+						},
+						"description": "Envía una respuesta incorrecta para probar la validación"
+					},
+					"response": []
+				}
+			],
+			"description": "Acertijos y respuestas del Nivel 1"
+		},
+		{
+			"name": "Nivel 2 - Las Frecuencias",
+			"item": [
+				{
+					"name": "GET Nivel 2 - Obtener Acertijo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"2"
+							]
+						},
+						"description": "Obtiene el acertijo del nivel 2: Suma de frecuencias (10001 + 1100 + 10101)"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 2 - Sin Llave (Error)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"answer\": \"50\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"2"
+							]
+						},
+						"description": "Intenta responder sin la llave del nivel anterior"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 2 - Llave Incorrecta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"last_key\": \"999\",\n  \"answer\": \"50\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"2"
+							]
+						},
+						"description": "Envía una llave incorrecta del nivel anterior"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 2 - Respuesta Correcta (50)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"last_key\": \"316\",\n  \"answer\": \"50\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"2"
+							]
+						},
+						"description": "Envía la respuesta correcta con la llave del nivel 1. Respuesta: 50 (17+12+21)"
+					},
+					"response": []
+				}
+			],
+			"description": "Acertijos y respuestas del Nivel 2"
+		},
+		{
+			"name": "Nivel 3 - La Secuencia Final",
+			"item": [
+				{
+					"name": "GET Nivel 3 - Obtener Acertijo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"3"
+							]
+						},
+						"description": "Obtiene el acertijo final: Ordenar códigos de desinfección de menor a mayor"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 3 - Sin Llave del Nivel 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"answer\": \"1001-1011-1100-1110\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"3"
+							]
+						},
+						"description": "Intenta responder sin la llave del nivel 2"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 3 - Respuesta Correcta (Ganar)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"last_key\": \"50\",\n  \"answer\": \"1001-1011-1100-1110\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"3"
+							]
+						},
+						"description": "Envía la respuesta correcta final. Respuesta: 1001-1011-1100-1110 (orden: 9, 11, 12, 14). ¡VICTORIA!"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nivel 3 - Respuesta Incorrecta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"last_key\": \"50\",\n  \"answer\": \"1110-1100-1011-1001\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/level/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"level",
+								"3"
+							]
+						},
+						"description": "Envía el orden incorrecto (de mayor a menor en lugar de menor a mayor)"
+					},
+					"response": []
+				}
+			],
+			"description": "Acertijos y respuestas del Nivel 3 (Final)"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
